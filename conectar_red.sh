@@ -57,7 +57,7 @@ EOF
 				fi
 			elif [ "$forma_conexion" = "2" ]; then 
 				dhclient -v $interfaz_conexion
-				echo -n "¿Desea que la configuración sea permanente (1.-Sí, 2.-No)?"
+				echo "¿Desea que la configuración sea permanente (1.-Sí, 2.-No)?"
 				read permanente
 				if [ "$permanente" = "1" ]; then
 					cat >> /etc/network/interfaces <<EOF
@@ -105,12 +105,12 @@ iface "$interfaz_conexion" inet static
 	address "$ip"/"$mascara"
 	gateway "$gateway"
 EOF
-				elif [ "$permanente" = "2" ]; then
-					echo "No se guardó la configuración en el sistema"
-				fi
+					elif [ "$permanente" = "2" ]; then
+						echo "No se guardó la configuración en el sistema"
+					fi
 				elif [ "$forma_conectar" = "2" ]; then 
 					dhclient -v $interfaz_conexion
-					echo -n "¿Desea que la configuración sea permanente (1.-Sí, 2.-No)?"
+					echo "¿Desea que la configuración sea permanente (1.-Sí, 2.-No)?"
 					read permanente
 					if [ "$permanente" = "1" ]; then
 						cat >> /etc/network/interfaces <<EOF
